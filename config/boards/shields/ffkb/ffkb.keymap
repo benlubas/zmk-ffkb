@@ -62,7 +62,7 @@
     nav_layer {
       bindings = <
         &trans &kp TAB  &kp N7   &kp N8    &kp N9    &kp MINUS         &kp PRCNT    &kp AMPS   &kp N8  &kp N9     &kp BSPC  &trans
-        &trans &kp H0   &kp N4   &kp N5    &kp N6    &kp ENTER         &kp LEFT     &kp DOWN   &kp UP  &kp RIGHT  &kp N6    &trans
+        &trans &kp N0   &kp N4   &kp N5    &kp N6    &kp ENTER         &kp LEFT     &kp DOWN   &kp UP  &kp RIGHT  &kp N6    &trans
         &trans &trans   &kp N1   &kp N2    &kp N3    &trans            &mo FN       &mo FN     &trans  &trans     &trans    &trans
         &trans &trans &trans &trans &trans &trans &trans &trans
         >;
