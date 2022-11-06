@@ -17,13 +17,23 @@
     compatible = "zmk,combos";
     combo_esc {
       timeout-ms = <50>; 
-      key-positions = <19 20>; // jk
+      key-positions = <20 21>; // jk
       bindings = <&kp ESC>;
     };
     combo_del {
       timeout-ms = <50>; 
       key-positions = <10 22>; // p'
       bindings = <&kp DEL>;
+    };
+    combo_bkspc {
+      timeout-ms = <25>; 
+      key-positions = <15 16>; // df 
+      bindings = <&kp TAB>;
+    };
+    combo_tab {
+      timeout-ms = <25>; 
+      key-positions = <14 16>; // sf 
+      bindings = <&kp TAB>;
     };
     combo_bootloader {
       timeout-ms = <50>; 
