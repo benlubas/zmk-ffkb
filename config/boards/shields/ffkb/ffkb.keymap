@@ -28,7 +28,7 @@
     combo_bkspc {
       timeout-ms = <25>; 
       key-positions = <15 16>; // df 
-      bindings = <&kp TAB>;
+      bindings = <&kp BSPC>;
     };
     combo_tab {
       timeout-ms = <25>; 
@@ -69,9 +69,9 @@
 
     nav_layer {
       bindings = <
-        &trans &kp TAB  &kp N7   &kp N8    &kp N9    &kp MINUS         &kp PRCNT    &kp AMPS   &kp N8  &kp N9     &kp BSPC  &trans
-        &trans &kp N0   &kp N4   &kp N5    &kp N6    &kp ENTER   &none &kp LEFT     &kp DOWN   &kp UP  &kp RIGHT  &kp N6    &trans
-        &trans &trans   &kp N1   &kp N2    &kp N3    &trans            &trans       &trans     &trans  &trans     &trans    &trans
+        &trans &kp TAB  &kp N7   &kp N8    &kp N9    &kp MINUS         &kp S(TAB)   &kp AMPS   &kp N8  &kp S(C(TAB))  &kp BSPC  &trans
+        &trans &kp N0   &kp N4   &kp N5    &kp N6    &kp ENTER   &none &kp LEFT     &kp DOWN   &kp UP  &kp RIGHT      &kp N6    &trans
+        &trans &trans   &kp N1   &kp N2    &kp N3    &trans            &trans       &trans     &trans  &trans         &trans    &trans
         &trans &trans &trans &trans &trans &trans &trans &trans
         >;
     };
