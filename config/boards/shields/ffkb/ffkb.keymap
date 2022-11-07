@@ -22,7 +22,7 @@
     };
     combo_caps {
       timeout-ms = <50>; 
-      key-positions = <31 32>; // bn
+      key-positions = <31 32>; // nm
       bindings = <&caps_word>;
     };
     combo_del {
