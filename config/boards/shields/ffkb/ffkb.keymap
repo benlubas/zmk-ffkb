@@ -16,42 +16,52 @@
   combos {
     compatible = "zmk,combos";
     combo_esc {
-      timeout-ms = <50>; 
+      timeout-ms = <50>;
       key-positions = <20 21>; // jk
       bindings = <&kp ESC>;
     };
     combo_caps {
-      timeout-ms = <50>; 
+      timeout-ms = <50>;
       key-positions = <31 32>; // nm
       bindings = <&caps_word>;
     };
+    combo_desktop_left {
+      timeout-ms = <40>;
+      key-positions = <6 19>; // yh
+      bindings = <&kp LC(LEFT)>;
+    };
+    combo_desktop_right {
+      timeout-ms = <40>;
+      key-positions = <9 22>; // ol
+      bindings = <&kp LC(RIGHT)>;
+    };
     combo_del {
-      timeout-ms = <50>; 
+      timeout-ms = <50>;
       key-positions = <10 23>; // p'
       bindings = <&kp DEL>;
     };
     combo_bkspc {
-      timeout-ms = <25>; 
-      key-positions = <15 16>; // df 
+      timeout-ms = <25>;
+      key-positions = <15 16>; // df
       bindings = <&kp BSPC>;
     };
     combo_tab {
-      timeout-ms = <25>; 
-      key-positions = <14 16>; // sf 
+      timeout-ms = <25>;
+      key-positions = <14 16>; // sf
       bindings = <&kp TAB>;
     };
     combo_bootloader {
-      timeout-ms = <50>; 
+      timeout-ms = <50>;
       key-positions = <26 27 28 29>; // zxcv
       bindings = <&bootloader>;
     };
     combo_reset {
-      timeout-ms = <50>; 
+      timeout-ms = <50>;
       key-positions = <4 5 16 17>; // rtfg
       bindings = <&sys_reset>;
     };
     combo_bt {
-      timeout-ms = <50>; 
+      timeout-ms = <50>;
       key-positions = <29 30 31 32>; // vbnm
       bindings = <&to BT_L>;
     };
@@ -92,10 +102,10 @@
 
     bt_layer {
       bindings = <
-      &trans &bt BT_CLR   &trans       &trans       &trans       &trans            &trans &trans &trans &trans &trans   &trans 
-      &trans &trans       &trans       &trans       &trans       &trans    &none   &trans &trans &trans &trans &to HOME_L &trans 
-      &trans &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5      &trans &trans &trans &trans &trans   &trans 
-                    &trans &trans &trans &trans &trans &trans &trans &trans 
+      &trans &bt BT_CLR   &trans       &trans       &trans       &trans            &trans &trans &trans &trans &trans     &trans
+      &trans &trans       &trans       &trans       &trans       &trans    &none   &trans &trans &trans &trans &to HOME_L &trans
+      &trans &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5      &trans &trans &trans &trans &trans     &trans
+      &trans &trans &trans &trans &trans &trans &trans &trans
       >;
     };
 
