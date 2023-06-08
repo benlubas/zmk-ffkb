@@ -27,12 +27,12 @@
     };
     combo_desktop_left {
       timeout-ms = <40>;
-      key-positions = <6 19>; // yh
+      key-positions = <2 14>; // ws
       bindings = <&kp LC(LEFT)>;
     };
     combo_desktop_right {
       timeout-ms = <40>;
-      key-positions = <9 22>; // ol
+      key-positions = <5 17>; // tg
       bindings = <&kp LC(RIGHT)>;
     };
     combo_del {
