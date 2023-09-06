@@ -12,43 +12,18 @@
   continue-list = <UNDERSCORE MINUS>;
 };
 
+&sk {
+  release-after-ms = <4000>;
+}
+
 / {
   combos {
     compatible = "zmk,combos";
-    combo_esc {
-      timeout-ms = <50>;
-      key-positions = <20 21>; // jk
-      bindings = <&kp ESC>;
-    };
-    combo_caps {
-      timeout-ms = <50>;
-      key-positions = <31 32>; // nm
-      bindings = <&caps_word>;
-    };
-    combo_desktop_left {
-      timeout-ms = <40>;
-      key-positions = <6 19>; // yh
-      bindings = <&kp LC(LEFT)>;
-    };
-    combo_desktop_right {
-      timeout-ms = <40>;
-      key-positions = <9 22>; // ol
-      bindings = <&kp LC(RIGHT)>;
-    };
+
     combo_del {
       timeout-ms = <50>;
       key-positions = <10 23>; // p'
       bindings = <&kp DEL>;
-    };
-    combo_bkspc {
-      timeout-ms = <25>;
-      key-positions = <15 16>; // df
-      bindings = <&kp BSPC>;
-    };
-    combo_tab {
-      timeout-ms = <25>;
-      key-positions = <14 16>; // sf
-      bindings = <&kp TAB>;
     };
     combo_bootloader {
       timeout-ms = <50>;
@@ -65,6 +40,39 @@
       key-positions = <29 30 31 32>; // vbnm
       bindings = <&to BT_L>;
     };
+    // COMBO MODS
+    // TODO: setup the mods with a custom behaviour to mimic qmk's "must hold combo" setting
+    // hopefully it's possible to get close to the same behaviour
+    combo_lctrl {
+      timeout-ms = <30>;
+      key-positions = <16 15>; // fd
+      bindings = <&sk LCTRL>;
+    };
+    combo_lsuper {
+      timeout-ms = <30>;
+      key-positions = <16 14>; // fs
+      bindings = <&sk LSUPER>;
+    };
+    combo_lalt {
+      timeout-ms = <30>;
+      key-positions = <16 13>; // fa
+      bindings = <&sk LALT>;
+    };
+    combo_rctrl {
+      timeout-ms = <30>;
+      key-positions = <20 21>; // jk
+      bindings = <&sk RCTRL>;
+    };
+    combo_rsuper {
+      timeout-ms = <30>;
+      key-positions = <20 22>; // jl
+      bindings = <&sk RSUPER>;
+    };
+    combo_ralt {
+      timeout-ms = <30>;
+      key-positions = <20 23>; // j'
+      bindings = <&sk RALT>;
+    };
   };
 };
 
@@ -78,15 +86,15 @@
         &none &kp Q        &kp W     &kp E     &kp R     &kp T          &kp Y     &kp U     &kp I       &kp O     &kp P          &none
         &none &kp A        &kp S     &kp D     &kp F     &kp G   &none  &kp H     &kp J     &kp K       &kp L     &kp SQT        &none
         &none &mt LSHIFT Z &kp X     &kp C     &kp V     &kp B          &kp N     &kp M     &kp COMMA   &kp DOT   &mt RSHIFT RET &none
-                           &none     &kp LMETA &sl NAV_L &kp LCTRL      &sl SYM_L &kp SPACE &kp RALT    &none
+                           &none     &kp ESC &sl NAV_L &key_repeat      &sl SYM_L &kp SPACE &caps_word    &none
         >;
     };
 
     nav_layer {
       bindings = <
-        &trans &kp TAB  &kp N7   &kp N8    &kp N9    &kp MINUS         &kp LS(LC(TAB))  &kp AMPS   &kp N8  &kp LC(TAB)  &kp BSPC  &trans
-        &trans &kp N0   &kp N4   &kp N5    &kp N6    &kp ENTER   &none &kp LEFT         &kp DOWN   &kp UP  &kp RIGHT    &kp N6    &trans
-        &trans &trans   &kp N1   &kp N2    &kp N3    &trans            &trans           &trans     &trans  &trans       &trans    &trans
+        &trans &kp TAB  &kp N7   &kp N8    &kp N9    &kp MINUS         &kp LS(LC(TAB))  &trans     &trans  &kp LC(TAB)  &kp BSPC  &trans
+        &trans &kp N0   &kp N4   &kp N5    &kp N6    &kp ENTER   &none &kp LEFT         &kp DOWN   &kp UP  &kp RIGHT    &trans    &trans
+        &trans &kp DOT  &kp N1   &kp N2    &kp N3    &kp PLUS          &trans           &trans     &trans  &trans       &trans    &trans
         &trans &trans &trans &trans &trans &trans &trans &trans
         >;
     };
