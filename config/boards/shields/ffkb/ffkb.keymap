@@ -18,6 +18,7 @@
     cmsk: combo_mod_stickey_key {
       compatible = "zmk,behavior-sticky-key";
       #binding-cells = <1>;
+      label = "HI";
       bindings = <&kp>;
       release-after-ms = <4000>;
       quick-release;
