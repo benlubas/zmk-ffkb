@@ -10,7 +10,7 @@
 #define BT_L 4
 
 &caps_word {
-  continue-list = <UNDERSCORE MINUS>;
+  continue-list = <UNDERSCORE MINUS BACKSPACE>;
 };
 
 / {
@@ -32,7 +32,9 @@
       bindings = <&cmsk>;
     };
   };
+};
 
+/ {
   combos {
     compatible = "zmk,combos";
 
