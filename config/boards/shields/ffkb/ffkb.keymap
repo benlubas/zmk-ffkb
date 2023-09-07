@@ -13,26 +13,26 @@
   continue-list = <UNDERSCORE MINUS BACKSPACE>;
 };
 
-/ {
-  behaviors {
-    cmsk: combo_mod_stickey_key {
-      compatible = "zmk,behavior-sticky-key";
-      label = "COMBO_MODS";
-      #binding-cells = <1>;
-      bindings = <&kp>;
-      release-after-ms = <4000>;
-      quick-release;
-      ignore-modifiers;
-    };
-    cm: combo_mod {
-      compatible = "zmk,behavior-hold-tap";
-      flavor = "tap-preferred";
-      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
-      #binding-cells = <1>;
-      bindings = <&cmsk>;
-    };
-  };
-};
+# / {
+#   behaviors {
+#     cmsk: combo_mod_stickey_key {
+#       compatible = "zmk,behavior-sticky-key";
+#       label = "COMBO_MODS";
+#       #binding-cells = <1>;
+#       bindings = <&kp>;
+#       release-after-ms = <4000>;
+#       quick-release;
+#       ignore-modifiers;
+#     };
+#     cm: combo_mod {
+#       compatible = "zmk,behavior-hold-tap";
+#       flavor = "tap-preferred";
+#       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+#       #binding-cells = <1>;
+#       bindings = <&cmsk>;
+#     };
+#   };
+# };
 
 / {
   combos {
@@ -61,36 +61,36 @@
     // COMBO MODS
     // TODO: setup the mods with a custom behaviour to mimic qmk's "must hold combo" setting
     // hopefully it's possible to get close to the same behaviour
-    combo_lctrl {
-      timeout-ms = <30>;
-      key-positions = <16 15>; // fd
-      bindings = <&cm LCTRL>;
-    };
-    combo_lsuper {
-      timeout-ms = <30>;
-      key-positions = <16 14>; // fs
-      bindings = <&cm LSUPER>;
-    };
-    combo_lalt {
-      timeout-ms = <30>;
-      key-positions = <16 13>; // fa
-      bindings = <&cm LALT>;
-    };
-    combo_rctrl {
-      timeout-ms = <30>;
-      key-positions = <20 21>; // jk
-      bindings = <&cm RCTRL>;
-    };
-    combo_rsuper {
-      timeout-ms = <30>;
-      key-positions = <20 22>; // jl
-      bindings = <&cm RSUPER>;
-    };
-    combo_ralt {
-      timeout-ms = <30>;
-      key-positions = <20 23>; // j'
-      bindings = <&cm RALT>;
-    };
+    # combo_lctrl {
+    #   timeout-ms = <30>;
+    #   key-positions = <16 15>; // fd
+    #   bindings = <&cm LCTRL>;
+    # };
+    # combo_lsuper {
+    #   timeout-ms = <30>;
+    #   key-positions = <16 14>; // fs
+    #   bindings = <&cm LSUPER>;
+    # };
+    # combo_lalt {
+    #   timeout-ms = <30>;
+    #   key-positions = <16 13>; // fa
+    #   bindings = <&cm LALT>;
+    # };
+    # combo_rctrl {
+    #   timeout-ms = <30>;
+    #   key-positions = <20 21>; // jk
+    #   bindings = <&cm RCTRL>;
+    # };
+    # combo_rsuper {
+    #   timeout-ms = <30>;
+    #   key-positions = <20 22>; // jl
+    #   bindings = <&cm RSUPER>;
+    # };
+    # combo_ralt {
+    #   timeout-ms = <30>;
+    #   key-positions = <20 23>; // j'
+    #   bindings = <&cm RALT>;
+    # };
   };
 };
 
