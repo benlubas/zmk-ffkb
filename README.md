@@ -8,5 +8,6 @@ pimoroni trackball in the center. You may need to adjust the firmware to support
 enable another feature, be sure to disable the encoder_3 since it shares pins with the other 
 features.
 
+
 For an example of firmware that supports an OLED, see:
 * https://github.com/NCKiser/zmk-ffkb
