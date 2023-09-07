@@ -15,14 +15,21 @@
 
 / {
   behaviors {
-    cm: combo_mods {
+    cmsk: combo_mod_stickey_key {
       compatible = "zmk,behavior-sticky-key";
       label = "COMBO_MODS";
       #binding-cells = <1>;
       bindings = <&kp>;
-      jelease-after-ms = <4000>;
+      release-after-ms = <4000>;
       quick-release;
       ignore-modifiers;
+    };
+    cm: combo_mod {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "tap-preferred";
+      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+      #binding-cells = <1>;
+      bindings = <&cmsk>;
     };
   };
 
@@ -55,32 +62,32 @@
     combo_lctrl {
       timeout-ms = <30>;
       key-positions = <16 15>; // fd
-      bindings = <&sk LCTRL>;
+      bindings = <&cm LCTRL>;
     };
     combo_lsuper {
       timeout-ms = <30>;
       key-positions = <16 14>; // fs
-      bindings = <&sk LSUPER>;
+      bindings = <&cm LSUPER>;
     };
     combo_lalt {
       timeout-ms = <30>;
       key-positions = <16 13>; // fa
-      bindings = <&sk LALT>;
+      bindings = <&cm LALT>;
     };
     combo_rctrl {
       timeout-ms = <30>;
       key-positions = <20 21>; // jk
-      bindings = <&sk RCTRL>;
+      bindings = <&cm RCTRL>;
     };
     combo_rsuper {
       timeout-ms = <30>;
       key-positions = <20 22>; // jl
-      bindings = <&sk RSUPER>;
+      bindings = <&cm RSUPER>;
     };
     combo_ralt {
       timeout-ms = <30>;
       key-positions = <20 23>; // j'
-      bindings = <&sk RALT>;
+      bindings = <&cm RALT>;
     };
   };
 };
