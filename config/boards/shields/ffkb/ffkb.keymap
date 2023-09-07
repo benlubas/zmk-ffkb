@@ -18,7 +18,7 @@
     cmsk: combo_mod_stickey_key {
       compatible = "zmk,behavior-sticky-key";
       #binding-cells = <1>;
-      label = "HI";
+      label = "COMBO_MOD_STICKY_KEY"
       bindings = <&kp>;
       release-after-ms = <4000>;
       quick-release;
@@ -27,6 +27,7 @@
     cm: combo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
+      label = "COMBO_MOD"
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <1>;
       bindings = <&cmsk>;
