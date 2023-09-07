@@ -17,7 +17,6 @@
   behaviors {
     cmsk: combo_mod_stickey_key {
       compatible = "zmk,behavior-sticky-key";
-      label = "COMBO_MODS";
       #binding-cells = <1>;
       bindings = <&kp>;
       release-after-ms = <4000>;
