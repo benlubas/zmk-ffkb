@@ -20,7 +20,7 @@
       #binding-cells = <1>;
       label = "COMBO_MOD_STICKY_KEY";
       bindings = <&kp>;
-      release-after-ms = <4000>;
+      release-after-ms = <10000>;
       quick-release;
       ignore-modifiers;
     };
@@ -30,7 +30,7 @@
       label = "COMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&none>, <&cmsk>;
+      bindings = <&cmsk>, <&none>;
     };
     // TODO: probably need two combos for each mod for each side. key order dependant, so that the tap part will output the
     // keys in the correct order...
@@ -85,32 +85,32 @@
      combo_lctrl {
        timeout-ms = <30>;
        key-positions = <16 15>; // fd
-       bindings = <&cm 0 LCTRL>;
+       bindings = <&cm LCTRL 0>;
      };
      combo_lsuper {
        timeout-ms = <30>;
        key-positions = <16 14>; // fs
-       bindings = <&cm 0 LGUI>;
+       bindings = <&cm LGUI 0>;
      };
      combo_lalt {
        timeout-ms = <30>;
        key-positions = <16 13>; // fa
-       bindings = <&cm 0 LALT>;
+       bindings = <&cm LALT 0>;
      };
      combo_rctrl {
        timeout-ms = <30>;
        key-positions = <20 21>; // jk
-       bindings = <&cm 0 RCTRL>;
+       bindings = <&cm RCTRL 0>;
      };
      combo_rsuper {
        timeout-ms = <30>;
        key-positions = <20 22>; // jl
-       bindings = <&cm 0 RGUI>;
+       bindings = <&cm RGUI 0>;
      };
      combo_ralt {
        timeout-ms = <30>;
        key-positions = <20 23>; // j'
-       bindings = <&cm 0 RALT>;
+       bindings = <&cm RALT 0>;
      };
   };
 };
