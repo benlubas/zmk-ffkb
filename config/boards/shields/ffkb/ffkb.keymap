@@ -9,6 +9,17 @@
 #define FN_L 3
 #define BT_L 4
 
+// Two key, a c macro that produces zmk macros
+#define TK(a, b) \
+  tk##a##b: two_key##a##b {\
+    label = "two_key" #a #b;\
+    compatible = "zmk,behavior-macro";\
+    #binding-cells = <0>;\
+    wait-ms = <0>;\
+    tap-ms = <0>;\
+    bindings = <&kp a>, <&kp b>;\
+  };
+
 &caps_word {
   continue-list = <UNDERSCORE MINUS BACKSPACE>;
 };
@@ -24,36 +35,109 @@
       quick-release;
       ignore-modifiers;
     };
-    cm: combo_mod {
+    jkcm: jkcombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "COMBO_MOD";
+      label = "JKCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&none>;
+      bindings = <&cmsk>, <&tkJK>;
     };
-    // TODO: probably need two combos for each mod for each side. key order dependant, so that the tap part will output the
-    // keys in the correct order...
-    // and that combo feature doesn't exist yet.
+    jlcm: jlcombo_mod {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "tap-preferred";
+      label = "JLCOMBO_MOD";
+      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+      #binding-cells = <2>;
+      bindings = <&cmsk>, <&tkJL>;
+    };
+    jqcm: jqcombo_mod {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "tap-preferred";
+      label = "JQCOMBO_MOD";
+      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+      #binding-cells = <2>;
+      bindings = <&cmsk>, <&tkJSQT>;
+    };
+    afcm: facombo_mod {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "tap-preferred";
+      label = "AFCOMBO_MOD";
+      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+      #binding-cells = <2>;
+      bindings = <&cmsk>, <&tkAF>;
+    };
+    fscm: fscombo_mod {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "tap-preferred";
+      label = "FSCOMBO_MOD";
+      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+      #binding-cells = <2>;
+      bindings = <&cmsk>, <&tkFS>;
+    };
+    fdcm: fdcombo_mod {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "tap-preferred";
+      label = "FDCOMBO_MOD";
+      tapping-term-ms = <150>; // must hold for 150ms to trigger mod
+      #binding-cells = <2>;
+      bindings = <&cmsk>, <&tkFD>;
+    };
   };
 };
 
-// / {
-//   macros: {
-//     tk: two_key {
-//       label = "two_key";
-//       compatible = "zmk,behavior-macro";
-//       #binding-cells = <2>;
-//       wait-ms = 0;
-//       tap-ms = 0;
-//       bindings = <&macro_param_1to1>,
-//         <&kp MACRO_PLACEHOLDER>,
-//         <&macro_param_2to1>,
-//         <&kp MACRO_PLACEHOLDER>
-//       ;
-//     };
-//   };
-// };
+/ {
+  macros {
+    tkJK: two_keyJK {
+      label = "two_keyJK";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&kp J>, <&kp K>;
+    };
+    tkJL: two_keyJL {
+      label = "two_keyJL";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&kp J>, <&kp L>;
+    };
+    tkJSQT: two_keyJSQT {
+      label = "two_keyJSQT";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&kp J>, <&kp SQT>;
+    };
+    tkFD: two_keyFD {
+      label = "two_keyFD";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&kp F>, <&kp D>;
+    };
+    tkFS: two_keyFS {
+      label = "two_keyFS";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&kp F>, <&kp S>;
+    };
+    tkAF: two_keyAF {
+      label = "two_keyAF";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&kp A>, <&kp F>;
+    };
+  };
+};
 
 / {
   combos {
@@ -80,37 +164,37 @@
       bindings = <&to BT_L>;
     };
     // COMBO MODS
-    // TODO: setup the mods with a custom behaviour to mimic qmk's "must hold combo" setting
-    // hopefully it's possible to get close to the same behaviour
      combo_lctrl {
-       timeout-ms = <30>;
+       timeout-ms = <35>;
        key-positions = <16 15>; // fd
-       bindings = <&cm LCTRL 0>;
+       bindings = <&fdcm LCTRL 0>;
      };
      combo_lsuper {
        timeout-ms = <30>;
        key-positions = <16 14>; // fs
-       bindings = <&cm LGUI 0>;
+       bindings = <&fscm LGUI 0>;
      };
+    // TODO: This macro needs to have two order dependant macros. Typeing "fa" and "af" is very
+    // common. "fa" is more likely to get held down though, so I'm going to make the quick roll "af"
      combo_lalt {
        timeout-ms = <30>;
        key-positions = <16 13>; // fa
-       bindings = <&cm LALT 0>;
+       bindings = <&afcm LALT 0>;
      };
      combo_rctrl {
        timeout-ms = <30>;
        key-positions = <20 21>; // jk
-       bindings = <&cm RCTRL 0>;
+       bindings = <&jkcm RCTRL J K>;
      };
      combo_rsuper {
        timeout-ms = <30>;
        key-positions = <20 22>; // jl
-       bindings = <&cm RGUI 0>;
+       bindings = <&jlcm RGUI J L>;
      };
      combo_ralt {
        timeout-ms = <30>;
        key-positions = <20 23>; // j'
-       bindings = <&cm RALT 0>;
+       bindings = <&jqcm RALT J SQT>;
      };
   };
 };
