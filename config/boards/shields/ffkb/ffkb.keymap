@@ -10,6 +10,8 @@
 #define BT_L 4
 
 // Two key, a c macro that produces zmk macros
+// I'm not actually using this, I'm going to keep it here in case I want to make changes and decide
+// to use this though.
 #define TK(a, b) \
   tk##a##b: two_key##a##b {\
     label = "two_key" #a #b;\
@@ -26,6 +28,12 @@
 
 / {
   behaviors {
+    &caps {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <250>;
+      bindings = <&caps_word>, <&kp CAPS>;
+    };
     cmsk: combo_mod_stickey_key {
       compatible = "zmk,behavior-sticky-key";
       #binding-cells = <1>;
@@ -165,34 +173,34 @@
     };
     // COMBO MODS
      combo_lctrl {
-       timeout-ms = <35>;
+       timeout-ms = <40>;
        key-positions = <16 15>; // fd
        bindings = <&fdcm LCTRL 0>;
      };
      combo_lsuper {
-       timeout-ms = <30>;
+       timeout-ms = <35>;
        key-positions = <16 14>; // fs
        bindings = <&fscm LGUI 0>;
      };
-    // TODO: This macro needs to have two order dependant macros. Typeing "fa" and "af" is very
+    // TODO: This macro needs to have two order dependant macros. Typing "fa" and "af" is very
     // common. "fa" is more likely to get held down though, so I'm going to make the quick roll "af"
      combo_lalt {
-       timeout-ms = <30>;
+       timeout-ms = <35>;
        key-positions = <16 13>; // fa
        bindings = <&afcm LALT 0>;
      };
      combo_rctrl {
-       timeout-ms = <30>;
+       timeout-ms = <35>;
        key-positions = <20 21>; // jk
        bindings = <&jkcm RCTRL J K>;
      };
      combo_rsuper {
-       timeout-ms = <30>;
+       timeout-ms = <35>;
        key-positions = <20 22>; // jl
        bindings = <&jlcm RGUI J L>;
      };
      combo_ralt {
-       timeout-ms = <30>;
+       timeout-ms = <35>;
        key-positions = <20 23>; // j'
        bindings = <&jqcm RALT J SQT>;
      };
@@ -208,7 +216,7 @@
         &none &kp Q        &kp W     &kp E     &kp R     &kp T          &kp Y     &kp U     &kp I       &kp O     &kp P          &none
         &none &kp A        &kp S     &kp D     &kp F     &kp G   &none  &kp H     &kp J     &kp K       &kp L     &kp SQT        &none
         &none &mt LSHIFT Z &kp X     &kp C     &kp V     &kp B          &kp N     &kp M     &kp COMMA   &kp DOT   &mt RSHIFT RET &none
-                           &none     &kp ESC &sl NAV_L &key_repeat      &sl SYM_L &kp SPACE &caps_word    &none
+                           &none     &kp ESC   &sl NAV_L &key_repeat    &sl SYM_L &kp SPACE &caps       &none
         >;
     };
 
@@ -216,7 +224,7 @@
       bindings = <
         &trans &kp TAB  &kp N7   &kp N8    &kp N9    &kp MINUS         &kp LS(LC(TAB))  &trans     &trans  &kp LC(TAB)  &kp BSPC  &trans
         &trans &kp N0   &kp N4   &kp N5    &kp N6    &kp ENTER   &none &kp LEFT         &kp DOWN   &kp UP  &kp RIGHT    &trans    &trans
-        &trans &kp DOT  &kp N1   &kp N2    &kp N3    &kp PLUS          &mo FN_L         &mo FN_L   &trans  &trans       &trans    &trans
+        &trans &trans   &kp N1   &kp N2    &kp N3    &kp DOT           &mo FN_L         &mo FN_L   &trans  &trans       &trans    &trans
         &trans &trans &trans &trans &trans &trans &trans &trans
         >;
     };
@@ -250,3 +258,4 @@
 
   };
 };
+// vi: tw=0
