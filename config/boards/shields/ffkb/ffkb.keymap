@@ -43,106 +43,106 @@
       quick-release;
       ignore-modifiers;
     };
-    jkcm: jkcombo_mod {
+    rctrl_cm: jucombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "JKCOMBO_MOD";
+      label = "JUCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&tkJK>;
+      bindings = <&cmsk>, <&tkJU>;
     };
-    jlcm: jlcombo_mod {
+    rcmd_cm: kicombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "JLCOMBO_MOD";
+      label = "KICOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&tkJL>;
+      bindings = <&cmsk>, <&tkKI>;
     };
-    jqcm: jqcombo_mod {
+    ralt_cm: locombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "JQCOMBO_MOD";
+      label = "LOCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&tkJSQT>;
+      bindings = <&cmsk>, <&tkLO>;
     };
-    afcm: facombo_mod {
+    lalt_cm: facombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "AFCOMBO_MOD";
+      label = "SWCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&tkAF>;
+      bindings = <&cmsk>, <&tkSW>;
     };
-    fscm: fscombo_mod {
+    lcmd_cm: decombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "FSCOMBO_MOD";
+      label = "DECOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&tkFS>;
+      bindings = <&cmsk>, <&tkDE>;
     };
-    fdcm: fdcombo_mod {
+    lctrl_cm: fdcombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "FDCOMBO_MOD";
+      label = "FRCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
-      bindings = <&cmsk>, <&tkFD>;
+      bindings = <&cmsk>, <&tkFR>;
     };
   };
 };
 
 / {
   macros {
-    tkJK: two_keyJK {
-      label = "two_keyJK";
+    tkJU: two_keyJU {
+      label = "two_keyJU";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&kp J>, <&kp K>;
+      bindings = <&kp J>, <&kp U>;
     };
-    tkJL: two_keyJL {
-      label = "two_keyJL";
+    tkKI: two_keyKI {
+      label = "two_keyKI";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&kp J>, <&kp L>;
+      bindings = <&kp K>, <&kp I>;
     };
-    tkJSQT: two_keyJSQT {
-      label = "two_keyJSQT";
+    tkLO: two_keyLO {
+      label = "two_keyLO";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&kp J>, <&kp SQT>;
+      bindings = <&kp L>, <&kp O>;
     };
-    tkFD: two_keyFD {
-      label = "two_keyFD";
+    tkFR: two_keyFR {
+      label = "two_keyFR";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&kp F>, <&kp D>;
+      bindings = <&kp F>, <&kp R>;
     };
-    tkFS: two_keyFS {
-      label = "two_keyFS";
+    tkDE: two_keyDE {
+      label = "two_keyDE";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&kp F>, <&kp S>;
+      bindings = <&kp D>, <&kp E>;
     };
-    tkAF: two_keyAF {
-      label = "two_keyAF";
+    tkSW: two_keyAF {
+      label = "two_keySW";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&kp A>, <&kp F>;
+      bindings = <&kp S>, <&kp W>;
     };
   };
 };
@@ -174,35 +174,33 @@
     // COMBO MODS
      combo_lctrl {
        timeout-ms = <40>;
-       key-positions = <16 15>; // fd
-       bindings = <&fdcm LCTRL 0>;
+       key-positions = <16 4>; // fr
+       bindings = <&lctrl_cm LCTRL 0>;
      };
      combo_lsuper {
        timeout-ms = <35>;
-       key-positions = <16 14>; // fs
-       bindings = <&fscm LGUI 0>;
+       key-positions = <15 3>; // de
+       bindings = <&lcmd_cm LGUI 0>;
      };
-    // TODO: This macro needs to have two order dependant macros. Typing "fa" and "af" is very
-    // common. "fa" is more likely to get held down though, so I'm going to make the quick roll "af"
      combo_lalt {
        timeout-ms = <35>;
-       key-positions = <16 13>; // fa
-       bindings = <&afcm LALT 0>;
+       key-positions = <14 2>; // sw
+       bindings = <&lalt_cm LALT 0>;
      };
      combo_rctrl {
        timeout-ms = <35>;
-       key-positions = <20 21>; // jk
-       bindings = <&jkcm RCTRL J K>;
+       key-positions = <20 7>; // ju
+       bindings = <&rctrl_cm RCTRL 0>;
      };
      combo_rsuper {
        timeout-ms = <35>;
-       key-positions = <20 22>; // jl
-       bindings = <&jlcm RGUI J L>;
+       key-positions = <21 8>; // ki
+       bindings = <&rcmd_cm RGUI 0>;
      };
      combo_ralt {
        timeout-ms = <35>;
-       key-positions = <20 23>; // j'
-       bindings = <&jqcm RALT J SQT>;
+       key-positions = <22 9>; // lo
+       bindings = <&ralt_cm RALT 0>;
      };
   };
 };
