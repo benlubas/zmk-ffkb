@@ -14,7 +14,6 @@
 // to use this though.
 #define TK(a, b) \
   tk##a##b: two_key##a##b {\
-    label = "two_key" #a #b;\
     compatible = "zmk,behavior-macro";\
     #binding-cells = <0>;\
     wait-ms = <0>;\
@@ -37,7 +36,6 @@
     cmsk: combo_mod_stickey_key {
       compatible = "zmk,behavior-sticky-key";
       #binding-cells = <1>;
-      label = "COMBO_MOD_STICKY_KEY";
       bindings = <&kp>;
       release-after-ms = <10000>;
       quick-release;
@@ -46,7 +44,6 @@
     rctrl_cm: jucombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "JUCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
       bindings = <&cmsk>, <&tkJU>;
@@ -54,7 +51,6 @@
     rcmd_cm: kicombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "KICOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
       bindings = <&cmsk>, <&tkKI>;
@@ -62,7 +58,6 @@
     ralt_cm: locombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "LOCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
       bindings = <&cmsk>, <&tkLO>;
@@ -70,7 +65,6 @@
     lalt_cm: facombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "SWCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
       bindings = <&cmsk>, <&tkSW>;
@@ -78,7 +72,6 @@
     lcmd_cm: decombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "DECOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
       bindings = <&cmsk>, <&tkDE>;
@@ -86,7 +79,6 @@
     lctrl_cm: fdcombo_mod {
       compatible = "zmk,behavior-hold-tap";
       flavor = "tap-preferred";
-      label = "FRCOMBO_MOD";
       tapping-term-ms = <150>; // must hold for 150ms to trigger mod
       #binding-cells = <2>;
       bindings = <&cmsk>, <&tkFR>;
@@ -97,7 +89,6 @@
 / {
   macros {
     tkJU: two_keyJU {
-      label = "two_keyJU";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
@@ -105,7 +96,6 @@
       bindings = <&kp J>, <&kp U>;
     };
     tkKI: two_keyKI {
-      label = "two_keyKI";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
@@ -113,7 +103,6 @@
       bindings = <&kp K>, <&kp I>;
     };
     tkLO: two_keyLO {
-      label = "two_keyLO";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
@@ -121,7 +110,6 @@
       bindings = <&kp L>, <&kp O>;
     };
     tkFR: two_keyFR {
-      label = "two_keyFR";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
@@ -129,7 +117,6 @@
       bindings = <&kp F>, <&kp R>;
     };
     tkDE: two_keyDE {
-      label = "two_keyDE";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
@@ -137,7 +124,6 @@
       bindings = <&kp D>, <&kp E>;
     };
     tkSW: two_keyAF {
-      label = "two_keySW";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
